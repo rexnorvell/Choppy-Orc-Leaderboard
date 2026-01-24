@@ -98,6 +98,10 @@ body {
   text-decoration: none;
 }
 
+.button:hover {
+  background-color: #687275;
+}
+
 .leaderboard, .form {
   border-radius: 10px;
   border-top: 5px solid #dbc244;
@@ -109,7 +113,8 @@ body {
 .form {
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  align-items: center;
+  padding: 20px;
 }
 
 .form-contents {
@@ -120,6 +125,7 @@ body {
   align-items: center;
   row-gap: 20px;
   padding-bottom: 20px;
+  width: 80%
 }
 
 .form-field-description {
@@ -154,5 +160,21 @@ body {
 
 .leaderboard-header {
   font-weight: bolder;
-  background-color: #4a4537;
+  background-color: #38342a;
+}
+
+input {
+  border: 1px solid #dbc244;
+  border-radius: 5px;
+  background-color: #21263f;
+  color: white;
+  padding: 10px;
+  font-family: 'Pix32', sans-serif;
+  font-size: 100%;
+  text-align: center;
+  width: 80%;
+}
+
+#submit-form-button {
+  width: 50%;
 }
