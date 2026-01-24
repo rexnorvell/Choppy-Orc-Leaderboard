@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/style.css">
+    <script src="../scripts/submitTime.js" defer></script>
+    <title>Submit Time</title>
+</head>
+<body>
+    <div class="header">
+        <div class="title">Submit Time</div>
+        <div class="instructions">Submit your speedrun times here to write your name among the stars.</div>
+    </div>
+    <div class="border"></div>
+    <form class="form">
+        <div class="form-contents">
+            <div class="form-field-description">Name</div>
+            <input class="username" type="text" name="username" title="Enter the name you'd like present on the leaderboard." required>
+            <div class="form-field-description">Time (s)</div>
+            <input class="time" type="number" name="time" step="0.001" min="0" title="Enter the time of your run in seconds with three decimal points (e.g., 123.456)." required>
+            <div class="form-field-description">Screenshot</div>
+            <input class="screenshot" type="file" name="screenshot" accept="image/*" title="Upload a screenshot of the end screen of your run displaying the time." required>
+        </div>
+        <button class="button" id="submit-form-button" title="Submit your time for review." type="button">Submit</button>
+    </form>
+    <div class="status-message"></div>
+</body>
+</html>
