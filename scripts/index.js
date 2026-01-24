@@ -27,13 +27,20 @@ async function load_leaderboard() {
     .then(data => {
         // Iterate through the data and create leaderboard entries
         for (let i = 0; i < data.length; i++) {
-            createLeaderboardEntry(data[i], i + 1);
+            let entry = getRankedTime(data, i + 1);
+            createLeaderboardEntry(entry, i + 1);
         }
     });
 }
 
+// Get the entry with the specified rank
+function getRankedTime(data, rank) {
+    let sortedData = data.sort((a, b) => parseFloat(a.time) - parseFloat(b.time));
+    return sortedData[rank - 1];
+}
+
 // Create leaderboard entry
-function createLeaderboardEntry(entryData, index) {
+function createLeaderboardEntry(entry, index) {
     let entryDiv = document.createElement("div");
     entryDiv.classList.add("leaderboard-entry");
 
@@ -43,19 +50,19 @@ function createLeaderboardEntry(entryData, index) {
 
     let usernameDiv = document.createElement("div");
     usernameDiv.classList.add("leaderboard-username");
-    usernameDiv.textContent = entryData.username;
+    usernameDiv.textContent = entry.username;
 
     let timeDiv = document.createElement("div");
     timeDiv.classList.add("leaderboard-time");
-    timeDiv.textContent = entryData.time;
+    timeDiv.textContent = entry.time;
 
     let dateDiv = document.createElement("div");
     dateDiv.classList.add("leaderboard-date");
-    dateDiv.textContent = entryData.date;
+    dateDiv.textContent = entry.date;
 
     let statusDiv = document.createElement("div");
     statusDiv.classList.add("leaderboard-status");
-    statusDiv.textContent = entryData.status;
+    statusDiv.textContent = entry.status;
 
     entryDiv.appendChild(rankDiv);
     entryDiv.appendChild(usernameDiv);

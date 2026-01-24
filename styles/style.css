@@ -16,9 +16,9 @@
 
 body {
   background-color: #21263f;
-  padding-left: 10%;
-  padding-right: 10%;
-  padding-top: 50px;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 20px;
 }
 
 .submission-error {
@@ -95,6 +95,7 @@ body {
   padding-bottom: 10px;
   padding-left: 50px;
   padding-right: 50px;
+  text-decoration: none;
 }
 
 .leaderboard, .form {

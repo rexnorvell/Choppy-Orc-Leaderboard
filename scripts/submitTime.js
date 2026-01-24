@@ -80,6 +80,9 @@ function submit_form() {
 
         // If successful, show success message
         else {
+            document.querySelector(".username").value = "";
+            document.querySelector(".time").value = "";
+            document.querySelector(".screenshot").value = "";
             resultDiv.classList.add("submission-success");
             resultDiv.textContent = "Successfully submitted time for review.";
         }
