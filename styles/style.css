@@ -1,3 +1,4 @@
+/* Define fonts */
 @font-face {
   font-family: 'Pixelmax Regular';
   src: url('../fonts/Pixelmax-Regular.otf') format('opentype');
@@ -66,14 +67,14 @@ body {
 .title {
   color: white;
   font-family: 'Pixelmax Regular', sans-serif;
-  font-size: 200%;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
   text-align: center;
 }
 
 .instructions {
   color: white;
   font-family: 'Pix32', sans-serif;
-  font-size: 120%;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
   text-align: center;
 }
 
@@ -96,6 +97,8 @@ body {
   padding-left: 50px;
   padding-right: 50px;
   text-decoration: none;
+  text-align: center;
+  font-size: clamp(0.85rem, 2.5vw, 1.5rem);
 }
 
 .button:hover {
@@ -114,7 +117,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .form-contents {
@@ -125,7 +129,7 @@ body {
   align-items: center;
   row-gap: 20px;
   padding-bottom: 20px;
-  width: 80%
+  width: 80%;
 }
 
 .form-field-description {
@@ -133,6 +137,7 @@ body {
   font-family: 'Pix32', sans-serif;
   margin-top: 10px;
   margin-bottom: 5px;
+  font-size: clamp(0.75rem, 4vw, 1.75rem);
 }
 
 .border {
@@ -156,6 +161,7 @@ body {
   border-bottom: 0.5px solid #dbc244;
   padding-top: 10px;
   padding-bottom: 10px;
+  font-size: clamp(0.5rem, 3.5vw, 1.5rem);
 }
 
 .leaderboard-header {
@@ -170,11 +176,7 @@ input {
   color: white;
   padding: 10px;
   font-family: 'Pix32', sans-serif;
-  font-size: 100%;
+  font-size: clamp(0.75rem, 4vw, 1.75rem);
   text-align: center;
   width: 80%;
-}
-
-#submit-form-button {
-  width: 50%;
 }
