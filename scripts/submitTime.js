@@ -17,24 +17,43 @@ function submit_form() {
     let resultDiv = document.createElement("div");
     let error = false;
     let warning = false;
+    let warningMessage = "";
 
-    // If any fields are empty, warn the user
-    if (document.querySelector(".username").value === "" ||
-        document.querySelector(".time").value === "" || 
-        document.querySelector(".screenshot").files.length === 0) {
-        warning = true;
-    }
-
-    // If the time is out of range, warn the user
+    // Validate user input
     let time_value = parseFloat(document.querySelector(".time").value);
-    if (isNaN(time_value) || time_value < 0 ) {
+    if (document.querySelector(".username").value === "") {
         warning = true;
+        warningMessage = "Please enter a username.";
+    }
+    else if (document.querySelector(".username").value.length > 20) {
+        warning = true;
+        warningMessage = "Username must be 20 characters or less.";
+    }
+    else if (document.querySelector(".time").value === "") {
+        warning = true;
+        warningMessage = "Please enter a time.";
+    }
+    else if (time_value <= 0 || time_value >= 3600) {
+        warning = true;
+        warningMessage = "Time must be greater than 0 and less than 3600 seconds.";
+    }
+    else if (!/^\d+\.\d{3}$/.test(document.querySelector(".time").value)) {
+        warning = true;
+        warningMessage = "Time must have three decimal points of precision (e.g., 123.456).";
+    }
+    else if (document.querySelector(".screenshot").files.length === 0) {
+        warning = true;
+        warningMessage = "Please upload a screenshot.";
+    }
+    else if (document.querySelector(".screenshot").files[0].size > 5 * 1024 * 1024) {
+        warning = true;
+        warningMessage = "Screenshot must be less than 5 MB.";
     }
 
     // If there was a warning, show warning message
     if (warning) {
         resultDiv.classList.add("submission-warning");
-        resultDiv.textContent = "Fill out all fields correctly before submitting.";
+        resultDiv.textContent = "Warning: " + warningMessage;
     }
     else {
 

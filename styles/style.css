@@ -86,7 +86,7 @@ body {
   gap: 20px;
 }
 
-.button {
+.button, .screenshot::file-selector-button {
   font-family: 'Pix32', sans-serif;
   border-radius: 10px;
   border: 5px solid #272b31;
@@ -94,14 +94,21 @@ body {
   color: white;
   padding-top: 10px;
   padding-bottom: 10px;
-  padding-left: 50px;
-  padding-right: 50px;
   text-decoration: none;
   text-align: center;
+}
+
+.button {
+  padding-left: 50px;
+  padding-right: 50px;
   font-size: clamp(0.85rem, 2.5vw, 1.5rem);
 }
 
-.button:hover {
+.screenshot::file-selector-button {
+  font-size: clamp(0.75rem, 2.5vw, 1.25rem);
+}
+
+.button:hover, .screenshot::file-selector-button:hover {
   background-color: #687275;
 }
 
@@ -170,7 +177,8 @@ body {
 }
 
 input {
-  border: 1px solid #dbc244;
+  border-top: 2px solid #dbc244;
+  border-bottom: 2px solid #dbc244;
   border-radius: 5px;
   background-color: #21263f;
   color: white;
